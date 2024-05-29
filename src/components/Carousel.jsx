@@ -10,17 +10,18 @@ const CarouselComponent = () => {
  };
 
  const handlePrev = () => {
-  setIndex((prevIndex) => (prevIndex === 0 ? 3 : prevIndex - 1));
+  setIndex((prevIndex) => (prevIndex === 0 ? 4 : prevIndex - 1));
  };
 
  const handleNext = () => {
-  setIndex((prevIndex) => (prevIndex === 3 ? 0 : prevIndex + 1));
+  setIndex((prevIndex) => (prevIndex === 4 ? 0 : prevIndex + 1));
  };
 
  const Banner1 = "/banner/main-banner1.png";
  const Banner2 = "/banner/main-banner2.png";
  const Banner3 = "/banner/main-banner3.png";
  const Banner4 = "/banner/main-banner4.png";
+ const Banner5 = "/banner/main-banner5.png";
 
  return (
   <div className="text-center mt-3 position-relative">
@@ -37,6 +38,9 @@ const CarouselComponent = () => {
     <BootstrapCarousel.Item>
      <img className="d-block w-100" src={Banner4} alt="Fourth slide" />
     </BootstrapCarousel.Item>
+    <BootstrapCarousel.Item>
+     <img className="d-block w-100" src={Banner5} alt="Fourth slide" />
+    </BootstrapCarousel.Item>
    </BootstrapCarousel>
    <button className="carousel-control-prev custom-prev" onClick={handlePrev}>
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -47,7 +51,7 @@ const CarouselComponent = () => {
     <span className="sr-only">Next</span>
    </button>
    <ol className="carousel-indicators custom-indicators">
-    {[0, 1, 2, 3].map((indicatorIndex) => (
+    {[0, 1, 2, 3, 4].map((indicatorIndex) => (
      <li
       key={indicatorIndex}
       data-target="#carouselExampleIndicators"
