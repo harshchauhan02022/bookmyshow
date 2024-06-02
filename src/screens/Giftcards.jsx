@@ -1,10 +1,11 @@
-
 import React, { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 
-const Stream = () => {
- const { textColor } = useContext(ThemeContext);
- return <div className={textColor}>Stream</div>;
-};
+const Giftcards = () => {
 
-export default Stream;
+ const { textColor } = useContext(ThemeContext);
+ return <div className={textColor}>Giftcards</div>;
+
+}
+
+export default Giftcards

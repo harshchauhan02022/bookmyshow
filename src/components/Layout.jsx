@@ -7,11 +7,16 @@ import NotFound from "../screens/NotFound";
 import Home from "../screens/Home";
 import Movies from "../screens/Movies";
 import Stream from "../screens/Stream";
-import Singin from "../screens/Singin";
 import Event from "../screens/Events";
 import Plays from "../screens/Plays";
 import Sports from "../screens/Sports";
 import Activites from "../screens/Activites";
+import Singin from "../screens/Singin";
+import ListYourShow from "../screens/ListYourShow";
+import Corporates from "../screens/Corporates";
+import Giftcards from "../screens/Giftcards";
+import Offers from "../screens/Offers";
+import Todo from "../screens/Todo";
 
 const Layout = () => {
  const { theme } = useContext(ThemeContext);
@@ -28,8 +33,13 @@ const Layout = () => {
      <Route path="/plays" element={<Plays />} />
      <Route path="/Sports" element={<Sports />} />
      <Route path="/Activites" element={<Activites />} />
+     <Route path="/signin" element={<Singin />} />
+     <Route path="/ListYourShow" element={<ListYourShow />} />
+     <Route path="/Corporates" element={<Corporates />} />
+     <Route path="/Offers" element={<Offers />} />
+     <Route path="/giftcards" element={<Giftcards />} />
+     <Route path="/todo" element={<Todo />}/>
      <Route path="*" element={<NotFound />} />
-     <Route path="/singin" element={<Singin />} />
 
     </Routes>
     <Footer />

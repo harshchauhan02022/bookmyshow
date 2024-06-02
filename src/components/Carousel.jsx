@@ -10,14 +10,14 @@ const CarouselComponent = () => {
  };
 
  const handlePrev = () => {
-  setIndex((prevIndex) => (prevIndex === 0 ? 4 : prevIndex - 1));
+  setIndex((prevIndex) => (prevIndex === 0 ? 3 : prevIndex - 1));
  };
 
  const handleNext = () => {
-  setIndex((prevIndex) => (prevIndex === 4 ? 0 : prevIndex + 1));
+  setIndex((prevIndex) => (prevIndex === 3 ? 0 : prevIndex + 1));
  };
 
- const Banner1 = "/banner/main-banner1.png";
+ // const Banner1 = "/banner/main-banner1.png";
  const Banner2 = "/banner/main-banner2.png";
  const Banner3 = "/banner/main-banner3.png";
  const Banner4 = "/banner/main-banner4.png";
@@ -26,9 +26,9 @@ const CarouselComponent = () => {
  return (
   <div className="text-center mt-3 position-relative">
    <BootstrapCarousel activeIndex={index} onSelect={handleSelect} controls={false} indicators={false}>
-    <BootstrapCarousel.Item>
+    {/* <BootstrapCarousel.Item>
      <img className="d-block w-100" src={Banner1} alt="First slide" />
-    </BootstrapCarousel.Item>
+    </BootstrapCarousel.Item> */}
     <BootstrapCarousel.Item>
      <img className="d-block w-100" src={Banner2} alt="Second slide" />
     </BootstrapCarousel.Item>

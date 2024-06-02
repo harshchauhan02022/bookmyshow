@@ -24,8 +24,8 @@ function Header() {
      </div>
      <ThemeToggleButton />
      <div className="d-flex justify-content-start align-items-center">
-     <Link to="signin" className="auth btn btn-outline-danger">Sign in</Link>
-     
+      <Link to="signin" className="auth btn btn-outline-danger">Sign in</Link>
+
 
       <button
        className="navbar-toggler"
@@ -55,7 +55,7 @@ function Header() {
         aria-label="Close"
        ></button>
       </div>
-      
+
      </div>
     </div>
    </nav>

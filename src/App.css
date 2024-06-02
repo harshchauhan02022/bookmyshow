@@ -45,12 +45,23 @@
   color: #fff;
 }
 
-.col-md-2,
-.col-md-6 {
+.col-md-2 {
   margin-top: 80px;
   margin-left: 150px;
 }
-.Filters {
-  background-color: antiquewhite;
 
+.col-md-8 {
+  margin-top: 80px;
+}
+
+.register {
+  height: 70%;
+  width: 100%;
+  margin-top: 30px
+}
+
+.events {
+  width: 24%;
+  margin-top: 10px;
+  margin-left: 6px;
 }

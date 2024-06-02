@@ -51,6 +51,10 @@ const InnerHeader = () => {
       Activites
        </Link>
       </li>
+      <li className="nav-item"><Link to={"/todo"} className="nav-link">
+      Todo
+       </Link>
+      </li>
      </ul>
 
      <ul className="navbar-nav mb-2 mb-lg-0">
@@ -69,7 +73,7 @@ const InnerHeader = () => {
       Offers
        </Link>
       </li>
-      <li className="nav-item"> <Link to={"/ giftcards"} className="nav-link">
+      <li className="nav-item"> <Link to={"/giftcards"} className="nav-link">
       Gift cards
        </Link>
       </li>
