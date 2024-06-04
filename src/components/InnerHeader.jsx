@@ -55,6 +55,10 @@ const InnerHeader = () => {
       Todo
        </Link>
       </li>
+      <li className="nav-item"><Link to={"/blogs"} className="nav-link">
+      Blogs
+       </Link>
+      </li>
      </ul>
 
      <ul className="navbar-nav mb-2 mb-lg-0">

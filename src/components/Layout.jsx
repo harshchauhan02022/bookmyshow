@@ -17,6 +17,7 @@ import Corporates from "../screens/Corporates";
 import Giftcards from "../screens/Giftcards";
 import Offers from "../screens/Offers";
 import Todo from "../screens/Todo";
+import AddBlog from "../screens/blogs/AddBlog";
 
 const Layout = () => {
  const { theme } = useContext(ThemeContext);
@@ -39,6 +40,7 @@ const Layout = () => {
      <Route path="/Offers" element={<Offers />} />
      <Route path="/giftcards" element={<Giftcards />} />
      <Route path="/todo" element={<Todo />}/>
+     <Route path="/blogs" element={<AddBlog />} />
      <Route path="*" element={<NotFound />} />
 
     </Routes>
