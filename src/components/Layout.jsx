@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "./Header";
+import Footer from "./Footer";
 import NotFound from "../screens/NotFound";
 import Home from "../screens/Home";
 import Movies from "../screens/Movies";
@@ -18,6 +18,8 @@ import Giftcards from "../screens/Giftcards";
 import Offers from "../screens/Offers";
 import Todo from "../screens/Todo";
 import AddBlog from "../screens/blogs/AddBlog";
+import Blogs from "../screens/blogs/Blogs";
+import Contact from "../screens/Contact";
 
 const Layout = () => {
  const { theme } = useContext(ThemeContext);
@@ -39,8 +41,10 @@ const Layout = () => {
      <Route path="/Corporates" element={<Corporates />} />
      <Route path="/Offers" element={<Offers />} />
      <Route path="/giftcards" element={<Giftcards />} />
-     <Route path="/todo" element={<Todo />}/>
-     <Route path="/blogs" element={<AddBlog />} />
+     <Route path="/todo" element={<Todo />} />
+     <Route path="/addblogs" element={<AddBlog />} />
+     <Route path="/blogs" element={<Blogs />} />
+     <Route path="contact" element={<Contact />} />
      <Route path="*" element={<NotFound />} />
 
     </Routes>

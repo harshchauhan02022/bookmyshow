@@ -1,5 +1,10 @@
-const baseUrl = "http://localhost:7000/";
+const baseUrl = "http://localhost:8000/";
 
-const addBlogsAPI = `${baseUrl}blogs`;
+// Api endpoint to get user list
+const getBlogsAPI = `${baseUrl}blogs`;
 
-export { addBlogsAPI };
+const addPostAPI = `${baseUrl}blogs`;
+// contact
+const getContactAPI = `${baseUrl}contacts`;
+
+export { getBlogsAPI, addPostAPI, getContactAPI };

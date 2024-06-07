@@ -38,12 +38,15 @@ const Singin = () => {
           </label>
          </div>
          <div className="text-center my-3">
-          <button type="button" className="btn btn-lg btn-primary">Sing up</button>
+          <button type="button" className="btn btn-lg btn-dark">Sing up</button>
          </div>
-         <div className="text-center">
+         <div className="text-center my-3">
           <div>
            <button className="btn btn-light btn-lg mb-2"><img src="./icon/google.png" alt="Google Icon" className="google-icon" style={{ height: '50px' }} /> <b>Create with Google</b></button>
           </div>
+          <div className="text-center my-3">
+          <button type="button" className="btn btn-lg btn-dark">Login</button>
+         </div>
 
          </div>
         </form>

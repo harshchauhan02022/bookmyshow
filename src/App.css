@@ -55,7 +55,7 @@
 }
 
 .register {
-  height: 70%;
+  height: 80%;
   width: 100%;
   margin-top: 30px
 }
@@ -64,4 +64,7 @@
   width: 24%;
   margin-top: 10px;
   margin-left: 6px;
+}
+.navbar-toggler {
+   margin-left: 20px;
 }

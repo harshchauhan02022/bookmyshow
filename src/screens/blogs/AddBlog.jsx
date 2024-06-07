@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
-import { addBlogsAPI } from '../../Api'
+import axios from "axios";
+import { addPostAPI } from "../../Api";
 
 const AddBlog = () => {
-
+ const navigate = useNavigate();
  const [title, setTitle] = useState("");
- const [description, setDescription] = useState("")
+ const [description, setDescription] = useState("");
  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+ const [currentId, setCurrentId] = useState(() => {
+
+  const savedId = localStorage.getItem("currentId");
+  return savedId ? parseInt(savedId, 10) : 1;
+ });
 
  useEffect(() => {
   if (title !== "" && description !== "") {
    setIsButtonDisabled(false);
+  } else {
+   setIsButtonDisabled(true);
   }
  }, [title, description]);
 
@@ -20,24 +28,42 @@ const AddBlog = () => {
 
   if (name === "title") {
    setTitle(value);
-  }
-  else if (name === "description") {
+  } else if (name === "description") {
    setDescription(value);
   }
  };
 
+ // add blog function
  const addBlog = async () => {
   try {
+   // Payload or request params to add new blog
    const payload = {
+    id: currentId,
     title,
     description,
+    date: new Date().toISOString(),
    };
-   const response = await axios.post(addBlogsAPI, payload)
-   console.log("blog response", response);
+
+   // Api call to add new blog
+   const response = await axios.post(addPostAPI, payload);
+
+   if (response) {
+    // Increment and save the current ID
+    const newId = currentId + 1;
+    setCurrentId(newId);
+    localStorage.setItem("currentId", newId.toString());
+
+    // Navigate to blogs page
+    navigate("/blogs");
+   }
+
+   console.log(">>> add blog response", response);
   } catch (error) {
-   console.log("Error while adding blog", error)
+   console.error("Error while adding blog", error);
+   alert("There was an error adding the blog. Please try again.");
   }
  };
+
  return (
   <>
    <div className="col-md-6">
@@ -49,12 +75,14 @@ const AddBlog = () => {
       className="form-control mb-2"
       name="title"
       onChange={handleChange}
+      value={title}
      />
      <textarea
       placeholder="Description"
       className="form-control mb-2"
       name="description"
       onChange={handleChange}
+      value={description}
      ></textarea>
      <Button onClick={addBlog} disabled={isButtonDisabled}>
       Submit
@@ -62,7 +90,7 @@ const AddBlog = () => {
     </Form>
    </div>
   </>
- )
-}
+ );
+};
 
-export default AddBlog
+export default AddBlog;

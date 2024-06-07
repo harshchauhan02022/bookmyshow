@@ -1,8 +1,8 @@
 import React from "react";
-const LogoFooter = "/logofooter.png"
+import { Link } from "react-router-dom";
+const LogoFooter = "/icon/logofooter.png";
 
 function Footer() {
-
   return (
     <footer id="footer" className="mt-4">
       <div className="container-fluid">
@@ -13,9 +13,11 @@ function Footer() {
               & get listed on BookMyShow
             </div>
             <div className="">
-              <button type="button" className="btn btn-danger btn-sm">
-                Contact Us
-              </button>
+              <Link to="/contact">
+                <button type="button" className="btn btn-danger btn-sm">
+                  Contact Us
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -24,15 +26,15 @@ function Footer() {
         <div className="container">
           <div className=" d-flex justify-content-around">
             <div className="d-flex justify-content-between align-items-center justify-content-center">
-              {/* <img src="" /> */}
+              <img src="" />
               <p>24/7 CUSTOMER CARE</p>
             </div>
             <div className="d-flex justify-content-between align-items-center justify-content-center">
-              {/* <img src="" /> */}
+              <img src="" />
               <p>24/7 CUSTOMER CARE</p>
             </div>
             <div className="d-flex justify-content-between align-items-center justify-content-center">
-              {/* <img src="" /> */}
+              <img src="" />
               <p>24/7 CUSTOMER CARE</p>
             </div>
           </div>

@@ -26,8 +26,7 @@ function Header() {
      <div className="d-flex justify-content-start align-items-center">
       <Link to="signin" className="auth btn btn-outline-danger">Sign in</Link>
 
-
-      <button
+<button
        className="navbar-toggler"
        type="button"
        data-bs-toggle="offcanvas"

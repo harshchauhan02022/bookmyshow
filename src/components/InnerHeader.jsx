@@ -33,53 +33,56 @@ const InnerHeader = () => {
       </li>
 
       <li className="nav-item">
-      <Link to={"/events"} className="nav-link">
-      Events
+       <Link to={"/events"} className="nav-link">
+        Events
        </Link>
       </li>
       <li className="nav-item">
-      <Link to={"/plays"} className="nav-link">
-      Plays
+       <Link to={"/plays"} className="nav-link">
+        Plays
        </Link>
       </li>
       <li className="nav-item">
-      <Link to={"/sports"} className="nav-link">
-      Sports
+       <Link to={"/sports"} className="nav-link">
+        Sports
        </Link>
       </li>
       <li className="nav-item"><Link to={"/activites"} className="nav-link">
-      Activites
-       </Link>
+       Activites
+      </Link>
       </li>
       <li className="nav-item"><Link to={"/todo"} className="nav-link">
-      Todo
-       </Link>
+       Todo
+      </Link>
       </li>
-      <li className="nav-item"><Link to={"/blogs"} className="nav-link">
-      Blogs
-       </Link>
+      <li className="nav-item"><Link to={"/addblogs"} className="nav-link">
+       AddBlogs
+      </Link>
       </li>
+      <Link className="nav-link" to="blogs">
+       Blogs
+      </Link>
      </ul>
 
      <ul className="navbar-nav mb-2 mb-lg-0">
       <li className="nav-item">
-      <Link to={"/listYourShow"} className="nav-link">
-      ListYourShow
+       <Link to={"/listYourShow"} className="nav-link">
+        ListYourShow
        </Link>
       </li>
       <li className="nav-item">
-      <Link to={"/corporates"} className="nav-link">
-      Corporates
+       <Link to={"/corporates"} className="nav-link">
+        Corporates
        </Link>
       </li>
 
       <li className="nav-item"> <Link to={"/offers"} className="nav-link">
-      Offers
-       </Link>
+       Offers
+      </Link>
       </li>
       <li className="nav-item"> <Link to={"/giftcards"} className="nav-link">
-      Gift cards
-       </Link>
+       Gift cards
+      </Link>
       </li>
      </ul>
     </div>
