@@ -15,7 +15,7 @@ const AddBlog = () => {
   return savedId ? parseInt(savedId, 10) : 1;
  });
 
- useEffect(() => {
+ useEffect(() => {  
   if (title !== "" && description !== "") {
    setIsButtonDisabled(false);
   } else {

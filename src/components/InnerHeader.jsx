@@ -76,7 +76,7 @@ const InnerHeader = () => {
        </Link>
       </li>
 
-      <li className="nav-item"> <Link to={"/offers"} className="nav-link">
+      <li className="nav-item"> <Link to={"/test"} className="nav-link">
        Offers
       </Link>
       </li>

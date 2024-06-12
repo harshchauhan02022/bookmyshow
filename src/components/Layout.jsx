@@ -20,6 +20,7 @@ import Todo from "../screens/Todo";
 import AddBlog from "../screens/blogs/AddBlog";
 import Blogs from "../screens/blogs/Blogs";
 import Contact from "../screens/Contact";
+import Test from "../screens/Test";
 
 const Layout = () => {
  const { theme } = useContext(ThemeContext);
@@ -45,6 +46,7 @@ const Layout = () => {
      <Route path="/addblogs" element={<AddBlog />} />
      <Route path="/blogs" element={<Blogs />} />
      <Route path="contact" element={<Contact />} />
+     <Route path="test" element={<Test />} />
      <Route path="*" element={<NotFound />} />
 
     </Routes>

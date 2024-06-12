@@ -6,5 +6,8 @@ const getBlogsAPI = `${baseUrl}blogs`;
 const addPostAPI = `${baseUrl}blogs`;
 // contact
 const getContactAPI = `${baseUrl}contacts`;
+//SingUp
+const addSingupAPI = `${baseUrl}singup`;
 
-export { getBlogsAPI, addPostAPI, getContactAPI };
+
+export { getBlogsAPI, addPostAPI, getContactAPI, addSingupAPI };
