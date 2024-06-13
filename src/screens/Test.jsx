@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Test = () => {
+ const Test = () => {
  const [name, setName] = useState("");
  const [collage, setCollage] = useState("");
  const [subject, setSubject] = useState("");
