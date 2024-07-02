@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
- const Test = () => {
+const Test = () => {
  const [name, setName] = useState("");
  const [collage, setCollage] = useState("");
  const [subject, setSubject] = useState("");
@@ -16,7 +16,6 @@ import React, { useState } from "react";
    setSubject(value);
   }
  };
-
  const handleSubmit = (e) => {
   e.preventDefault();
   setSubmittedData({ name, collage, subject });

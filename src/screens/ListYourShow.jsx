@@ -41,14 +41,13 @@ const ListYourShow = () => {
       <th scope="col">Action</th>
      </tr>
     </thead>
-
     <tbody>
      {loading ? (
       <div className="text-center">loading...</div>
      ) : (
       data.map((obj, key) => {
        return (
-        <tr scope="row" key={key}>
+        <tr scope="row" key={key}> 
          <td>{obj.id}</td>
          <td>{obj.name}</td>
          <td>{obj.username}</td>

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import ThemeContext from "../context/ThemeContext";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import { addSingupAPI } from "../Api"
 
@@ -60,11 +61,11 @@ const Singin = () => {
   <div className={textColor}>
    <div className="vh-100 d-flex  justify-content-center">
     <div className="container-fluid">
-     <div className="row">
-      <div className="col-lg-6 col-sm-6 p-0">
-       <img src="/banner/register-banner.jpg" className="register" alt="Register Banner" />
+     <div className="row container-row">
+      <div className="col-lg-6 col-sm-6 p-0 register">
+       <img src="/banner/register-banner.jpg" alt="Register Banner" />
       </div>
-      <div className="col-lg-5 col-sm-6">
+      <div className="col-lg-6 col-sm-6 signup-users">
        <div className="mt-3">
         <div className="text-center">
          <h1><b>Sign up</b></h1>
@@ -97,7 +98,9 @@ const Singin = () => {
            <button className="btn btn-light btn-lg mb-2"><img src="./icon/google.png" alt="Google Icon" className="google-icon" style={{ height: '50px' }} /> <b>Create with Google</b></button>
           </div>
           <div className="text-center my-3">
-           <button type="button" className="btn btn-lg btn-dark">Login</button>
+           {/* <button type="button" className="btn btn-lg btn-dark">Login</button> */}
+           <Link to="/login" className="btn btn-lg btn-dark">Login</Link>
+
           </div>
 
          </div>
@@ -108,7 +111,7 @@ const Singin = () => {
     </div>
    </div>
   </div>
- ); 
+ );
 };
 
 

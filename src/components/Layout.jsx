@@ -21,6 +21,7 @@ import AddBlog from "../screens/blogs/AddBlog";
 import Blogs from "../screens/blogs/Blogs";
 import Contact from "../screens/Contact";
 import Test from "../screens/Test";
+import Login from "../screens/Login";
 
 const Layout = () => {
  const { theme } = useContext(ThemeContext);
@@ -38,6 +39,7 @@ const Layout = () => {
      <Route path="/Sports" element={<Sports />} />
      <Route path="/Activites" element={<Activites />} />
      <Route path="/signin" element={<Singin />} />
+     <Route path="/login" element={<Login />} />
      <Route path="/ListYourShow" element={<ListYourShow />} />
      <Route path="/Corporates" element={<Corporates />} />
      <Route path="/Offers" element={<Offers />} />
