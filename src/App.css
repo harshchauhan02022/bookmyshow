@@ -90,11 +90,20 @@
 }
 
 .google {
-
   width: 20%;
 }
 
-.pt-3 {
+.google-singin {
+  width: 10%;
+}
+
+.google-connect-login {
   width: 50%;
   margin-left: 25%;
+}
+
+.google-connect-singin {
+  width: 50%;
+  height: 10%;
+
 }

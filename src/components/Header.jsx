@@ -1,10 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InnerHeader from "./InnerHeader";
 import ThemeToggleButton from "./ThemeToggleButton";
 const logo = "/logo.png";
 
 function Header() {
+
+      const navigate = useNavigate();
+      const userEmail = localStorage.getItem("email");
+      // const [userEmail] = useState(localStorage.getItem("email"));
+    
+      const logout = async () => {
+        await localStorage.clear();
+        navigate("/login");
+      };
  return (
   <>
    <nav className="navbar" aria-label="First navbar example">
@@ -23,7 +32,28 @@ function Header() {
       </form>
      </div>
      <ThemeToggleButton />
-     <div className="d-flex justify-content-start align-items-center">
+
+     {userEmail ? (
+              <>
+                <p>{userEmail}&nbsp;&nbsp;</p>
+                <button
+                  onClick={logout}
+                  type="button"
+                  className="btn btn-danger btn-sm me-2"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link to={"signin"}>
+                <button type="button" className="btn btn-danger btn-sm me-2">
+                  Sign in
+                </button>
+              </Link>
+            )}
+
+
+     {/* <div className="d-flex justify-content-start align-items-center">
       <Link to="signin" className="auth btn btn-outline-danger">Sign in</Link>
 
 <button
@@ -36,7 +66,7 @@ function Header() {
       >
        <span className="navbar-toggler-icon"></span>
       </button>
-     </div>
+     </div> */}
      <div
       className="offcanvas offcanvas-end text-bg-white"
       tabindex="-1"
