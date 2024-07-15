@@ -38,14 +38,12 @@ const Signin = () => {
 
  const addSignup = async (e) => {
   e.preventDefault();
-
   const payload = {
    name,
    email,
    phone,
    password,
   };
-
   try {
    const response = await axios.post("http://localhost:9000/api/users/register", payload);
    if (response && response.data) {
@@ -62,7 +60,6 @@ const Signin = () => {
    }
    setSuccessMessage("");
   }
-
  };
 
  return (
@@ -78,7 +75,8 @@ const Signin = () => {
         <div className="text-center">
          <h1><b>Sign up</b></h1>
         </div>
-
+        {successMessage && <p className="text-success">{successMessage}</p>}
+        {emailError && <p className="text-danger">{emailError}</p>}
         <form className="signup-form mx-auto" onSubmit={addSignup}>
          <div className="form-group mt-1">
           <label><b>Full name</b></label>
@@ -151,8 +149,6 @@ const Signin = () => {
           </div>
          </div>
         </form>
-        {successMessage && <p className="text-success">{successMessage}</p>}
-        {emailError && <p className="text-danger">{emailError}</p>}
        </div>
       </div>
      </div>

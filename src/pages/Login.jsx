@@ -22,16 +22,13 @@ const Login = () => {
       setPassword(value);
     }
   };
-
   useEffect(() => {
     setIsButtonDisabled(!(email && password));
   }, [email, password]);
-
   const login = async (event) => {
     event.preventDefault();
     setLoading(true);
     const payload = { email, password };
-
     try {
       const response = await axios.post("http://localhost:9000/api/users/login", payload);
       setLoading(false);
@@ -50,7 +47,6 @@ const Login = () => {
       }
     }
   };
-
   const clearForm = () => {
     setEmail("");
     setPassword("");
