@@ -11,7 +11,6 @@ import Event from "../screens/Events";
 import Plays from "../screens/Plays";
 import Sports from "../screens/Sports";
 import Activites from "../screens/Activites";
-import Singin from "../screens/Singin";
 import ListYourShow from "../screens/ListYourShow";
 import Corporates from "../screens/Corporates";
 import Giftcards from "../screens/Giftcards";
@@ -21,7 +20,10 @@ import AddBlog from "../screens/blogs/AddBlog";
 import Blogs from "../screens/blogs/Blogs";
 import Contact from "../screens/Contact";
 import Test from "../screens/Test";
-import Login from "../screens/Login";
+import Login from "../pages/Login";
+import Signin from "../pages/Singin";
+import ForgotPassword from "../pages/ForgotPassword";
+
 
 const Layout = () => {
  const { theme } = useContext(ThemeContext);
@@ -38,8 +40,9 @@ const Layout = () => {
      <Route path="/plays" element={<Plays />} />
      <Route path="/Sports" element={<Sports />} />
      <Route path="/Activites" element={<Activites />} />
-     <Route path="/signin" element={<Singin />} />
+     <Route path="/signin" element={<Signin />} />
      <Route path="/login" element={<Login />} />
+     <Route path="/forgotPassword" element={<ForgotPassword />} />
      <Route path="/ListYourShow" element={<ListYourShow />} />
      <Route path="/Corporates" element={<Corporates />} />
      <Route path="/Offers" element={<Offers />} />

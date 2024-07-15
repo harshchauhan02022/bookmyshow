@@ -50,7 +50,7 @@ const Blogs = () => {
      ) : (
       data.map((obj, key) => {
        return (
-        <tr scope="row">
+        <th scope="row">
          <td>{obj.id}</td>
          <td>{obj.title}</td>
          <td>{obj.description}</td>
@@ -59,7 +59,7 @@ const Blogs = () => {
           <button>Edit</button>
           <button className="ms-1">Delete</button>
          </td>
-        </tr>
+        </th>
        );
       })
      )}

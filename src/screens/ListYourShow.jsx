@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 
 const ListYourShow = () => {
  const [data, setData] = useState([]);
@@ -7,25 +7,24 @@ const ListYourShow = () => {
  const apiEndpoint = "https://jsonplaceholder.typicode.com/users";
 
  async function fetchUserList() {
-
   try {
    const response = await fetch(apiEndpoint);
    if (!response.ok) {
-    throw new Error("Nerwork failed");
+    throw new Error("Network failed");
    }
    const result = await response.json();
-
    setData(result);
-  }
-  catch (error) {
+  } catch (error) {
    console.log(">>>> error while fetching data", error);
-  }
-  finally {
-   // loading
+  } finally {
    setLoading(false);
   }
  }
- fetchUserList();
+
+ useEffect(() => {
+  fetchUserList();
+ }, []);
+
  return (
   <div className="p-5">
    <div className="text-center">
@@ -43,29 +42,27 @@ const ListYourShow = () => {
     </thead>
     <tbody>
      {loading ? (
-      <div className="text-center">loading...</div>
+      <tr>
+       <td colSpan="5" className="text-center">loading...</td>
+      </tr>
      ) : (
-      data.map((obj, key) => {
-       return (
-        <tr scope="row" key={key}> 
-         <td>{obj.id}</td>
-         <td>{obj.name}</td>
-         <td>{obj.username}</td>
-         <td>{obj.email}</td>
-         <td>
-          <button>Edit</button>
-          <button className="ms-1">Delete</button>
-         </td>
-        </tr>
-       );
-      })
+      data.map((obj) => (
+       <tr key={obj.id}>
+        <th scope="row">{obj.id}</th>
+        <td>{obj.name}</td>
+        <td>{obj.username}</td>
+        <td>{obj.email}</td>
+        <td>
+         <button>Edit</button>
+         <button className="ms-1">Delete</button>
+        </td>
+       </tr>
+      ))
      )}
     </tbody>
-
    </table>
-
   </div>
- )
+ );
 }
 
-export default ListYourShow
+export default ListYourShow;
