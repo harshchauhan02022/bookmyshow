@@ -21,7 +21,7 @@ import Blogs from "../screens/blogs/Blogs";
 import Contact from "../screens/Contact";
 import Test from "../screens/Test";
 import Login from "../pages/Login";
-import Signin from "../pages/Singin";
+// import Signin from "../pages/Singin";
 import ForgotPassword from "../pages/ForgotPassword";
 
 
@@ -40,7 +40,7 @@ const Layout = () => {
      <Route path="/plays" element={<Plays />} />
      <Route path="/Sports" element={<Sports />} />
      <Route path="/Activites" element={<Activites />} />
-     <Route path="/signin" element={<Signin />} />
+     {/* <Route path="/signin" element={<Signin />} /> */}
      <Route path="/login" element={<Login />} />
      <Route path="/forgotPassword" element={<ForgotPassword />} />
      <Route path="/ListYourShow" element={<ListYourShow />} />

@@ -1,52 +1,73 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
-import { ThreeDots } from 'react-loader-spinner';
-import { showToast } from "../utils/toast";
+import { ThreeDots } from "react-loader-spinner";
+import { showToast } from "../utils/toast"
+import useApi from "../api/useApi";
+
 
 const Login = () => {
   const { textColor } = useContext(ThemeContext);
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     if (name === "email") {
       setEmail(value);
-    } else if (name === "password") {
+    }
+    else if (name === "password") {
       setPassword(value);
     }
   };
+
   useEffect(() => {
-    setIsButtonDisabled(!(email && password));
+    if (email && password) {
+      setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
+    }
   }, [email, password]);
-  const login = async (event) => {
-    event.preventDefault();
-    setLoading(true);
+
+  const login = (event) => {
+    // event.preventDefault(); // Prevent form submission
+    setLoading(true); // set loader
     const payload = { email, password };
-    try {
-      const response = await axios.post("http://localhost:9000/api/users/login", payload);
-      setLoading(false);
+
+    // axios.post("http://localhost:9000/api/users/login", payload)
+    const promise = useApi.login(payload); // Call login api
+
+    promise.then(async (response) => {
+      setLoading(false); // unset loader
       await localStorage.setItem("email", email);
       await localStorage.setItem("token", response.data.token);
+      await sessionStorage.setItem("email", email);
       clearForm();
+      navigate("/"); // Redirect to the home page
       showToast("Login Successfully!", "success");
       navigate("/movies");
-    } catch (error) {
-      setLoading(false);
-      if (error.response && error.response.status === 401) {
-        showToast(error.response.data.message, "error");
-      } else {
-        console.error("Error while login", error.message);
-        showToast(error.message, "error");
-      }
-    }
+    })
+      .catch((error) => {
+        setLoading(false);
+        if (error.response && error.response.status === 401) {
+          showToast(error.response.data.message, "error");
+        } else {
+          console.log("Error while login", error.message);
+          showToast(error.message, "error");
+        }
+      });
   };
+
   const clearForm = () => {
     setEmail("");
     setPassword("");
@@ -103,6 +124,7 @@ const Login = () => {
                       disabled={isButtonDisabled}
                       type="submit"
                       className="btn btn-primary w-100"
+                      onClick={login}
                       style={{
                         display: "flex",
                         justifyContent: "center",
@@ -114,15 +136,11 @@ const Login = () => {
                         <div className="loader">
                           <ThreeDots height="30" width="30" color="#fff" />
                         </div>
-                      )}
-                    </button>
+                      )}                    </button>
                   </div>
                   <div className="mt-3 text-center">OR</div>
                   <div className="pt-3 google-connect-login">
-                    <button className="google-icon">
-                      <img src="/icon/google.png" className="google" alt="Google Icon" />
-                      <b>Create with Google</b>
-                    </button>
+                    <button className="google-icon"><img src="/icon/google.png" className="google" alt="Google Icon" /> <b>Create with Google</b></button>
                   </div>
                   <div className="mt-3 text-center pb-3">
                     <Link to="/signin" className="btn btn-lg btn-dark">Register</Link>

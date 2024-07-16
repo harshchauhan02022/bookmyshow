@@ -1,5 +1,5 @@
 .header {
-  background: red;
+  background: rgb(26, 22, 22);
 }
 
 #footer {
@@ -16,26 +16,26 @@
   background-color: rgb(64, 64, 67);
 }
 
-.footer-three {
+/* .footer-three {
   width: 100%;
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
   height: 125px;
-}
+} */
 
-.footer-three img {
+/* .footer-three img {
   position: relative;
   z-index: 1;
-}
+} */
 
-.footer-three:after {
+/* .footer-three:after {
   position: absolute;
   content: "";
   height: 1px;
   background: rgb(93, 93, 95);
   width: 100%;
-}
+} */
 
 .white-text {
   color: #000;
@@ -52,13 +52,6 @@
 
 .col-md-8 {
   margin-top: 80px;
-}
-
-.register img {
-  height: 80%;
-  width: 90%;
-  margin-top: 30px;
-  margin-left: 50px;
 }
 
 .login img {
@@ -163,8 +156,8 @@
   background-color: rgba(10, 5, 5, 0.185)
 }
 
-.events {
-  width: 100%;
+.events1 {
+  width: 80%;
   /* Full width */
   max-width: 300px;
   /* Set a max-width to control the size */

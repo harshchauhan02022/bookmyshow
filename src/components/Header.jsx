@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import InnerHeader from "./InnerHeader";
 import ThemeToggleButton from "./ThemeToggleButton";
 import ThemeContext from "../context/ThemeContext";
+import { Modal, Button } from 'react-bootstrap';
 import useApi from "../api/useApi";
+import Signin from "../pages/Singin"; // Import the Signin component
 
 const logo = "/logo.png";
 
@@ -12,34 +14,31 @@ function Header() {
   const navigate = useNavigate();
   const userEmail = localStorage.getItem("email");
 
+  const [showModal, setShowModal] = useState(false);
+
   function getProfile() {
     const promise = useApi.userProfile();
     promise
-      .then(async function (respose) {
-        console.log(">>>>>>> profile respose", respose);
+      .then(async function (response) {
+        console.log(">>>>>>> profile response", response);
       })
       .catch((error) => {
         console.log(">>>>>>> profile error", error.message);
-        // setLoading(false);
-        // if (error.response.status === 401) {
-        //   showToast(error.response.data.message, "error");
-        // } else {
-        //   console.log("Error while login", error.message);
-        //   showToast(error.message, "error");
-        // }
       });
   }
 
-  // it's render once after jsx render (ComponentDidMount)
   useEffect(() => {
     getProfile();
   }, []);
-
 
   const logout = async () => {
     await localStorage.clear();
     navigate("/login");
   };
+
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
   return (
     <div className={textColor}>
       <nav className="navbar" aria-label="First navbar example">
@@ -60,7 +59,6 @@ function Header() {
           <ThemeToggleButton />
 
           <div className="d-flex justify-content-start align-items-center">
-            {/* <Link to="signin" className="auth btn btn-outline-danger">Sign in</Link> */}
             {userEmail ? (
               <>
                 <p>{userEmail}&nbsp;&nbsp;</p>
@@ -73,11 +71,9 @@ function Header() {
                 </button>
               </>
             ) : (
-              <Link to={"login"}>
-                <button type="button" className="btn btn-danger btn-sm me-2">
-                  Login
-                </button>
-              </Link>
+              <Button variant="dark" onClick={handleShowModal}>
+                Sign up
+              </Button>
             )}
 
             <button
@@ -93,7 +89,7 @@ function Header() {
           </div>
           <div
             className="offcanvas offcanvas-end text-bg-white"
-            tabindex="-1"
+            tabIndex="-1"
             id="offcanvasNavbarDark"
             aria-labelledby="offcanvasNavbarDarkLabel"
           >
@@ -112,6 +108,15 @@ function Header() {
         </div>
       </nav>
       <InnerHeader />
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sign up</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Signin />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }
