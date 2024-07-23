@@ -21,8 +21,8 @@ import Blogs from "../screens/blogs/Blogs";
 import Contact from "../screens/Contact";
 import Test from "../screens/Test";
 import Login from "../pages/Login";
-// import Signin from "../pages/Singin";
 import ForgotPassword from "../pages/ForgotPassword";
+import SingPopup from "../menu/SingPopup";
 
 
 const Layout = () => {
@@ -53,6 +53,7 @@ const Layout = () => {
      <Route path="contact" element={<Contact />} />
      <Route path="test" element={<Test />} />
      <Route path="*" element={<NotFound />} />
+     <Route path="SingPopup" element={<SingPopup />} />
 
     </Routes>
     <Footer />

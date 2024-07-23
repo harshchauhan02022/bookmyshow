@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import Signin from './Signin';
-import Login from './Login';
+// import React, { useState } from 'react';
+// import Signin from './Signin';
+// import Login from './Login';
 
-const Main = () => {
- const [showLoginPopup, setShowLoginPopup] = useState(false);
+// const Main = () => {
+//  const [showLoginPopup, setShowLoginPopup] = useState(false);
 
- const toggleLoginPopup = () => {
-  setShowLoginPopup(!showLoginPopup);
- };
+//  const toggleLoginPopup = () => {
+//   setShowLoginPopup(!showLoginPopup);
+//  };
 
- return (
-  <div>
-   {!showLoginPopup && <Signin showLoginPopup={toggleLoginPopup} />}
-   {showLoginPopup && <Login closePopup={toggleLoginPopup} />}
-  </div>
- );
-};
+//  return (
+//   <div>
+//    {!showLoginPopup && <Signin showLoginPopup={toggleLoginPopup} />}
+//    {showLoginPopup && <Login closePopup={toggleLoginPopup} />}
+//   </div>
+//  );
+// };
 
-export default Main;
+// export default Main;

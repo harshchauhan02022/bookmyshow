@@ -1,15 +1,12 @@
-// import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
 import { ThreeDots } from "react-loader-spinner";
-import { showToast } from "../utils/toast"
+import { showToast } from "../utils/toast";
 import useApi from "../api/useApi";
-
 
 const Login = () => {
   const { textColor } = useContext(ThemeContext);
-
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +14,6 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate(); // Initialize useNavigate
-
   const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
@@ -25,47 +21,38 @@ const Login = () => {
 
     if (name === "email") {
       setEmail(value);
-    }
-    else if (name === "password") {
+    } else if (name === "password") {
       setPassword(value);
     }
   };
 
   useEffect(() => {
-    if (email && password) {
-      setIsButtonDisabled(false);
-    } else {
-      setIsButtonDisabled(true);
-    }
+    setIsButtonDisabled(!(email && password));
   }, [email, password]);
 
-  const login = (event) => {
-    // event.preventDefault(); // Prevent form submission
-    setLoading(true); // set loader
+  const login = async (event) => {
+    event.preventDefault(); // Prevent form submission
+    setLoading(true); // Set loader
     const payload = { email, password };
 
-    // axios.post("http://localhost:9000/api/users/login", payload)
-    const promise = useApi.login(payload); // Call login api
-
-    promise.then(async (response) => {
-      setLoading(false); // unset loader
+    try {
+      const response = await useApi.login(payload); // Call login api
       await localStorage.setItem("email", email);
       await localStorage.setItem("token", response.data.token);
       await sessionStorage.setItem("email", email);
       clearForm();
-      navigate("/"); // Redirect to the home page
       showToast("Login Successfully!", "success");
-      navigate("/movies");
-    })
-      .catch((error) => {
-        setLoading(false);
-        if (error.response && error.response.status === 401) {
-          showToast(error.response.data.message, "error");
-        } else {
-          console.log("Error while login", error.message);
-          showToast(error.message, "error");
-        }
-      });
+      navigate("/movies"); // Redirect to the movies page
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        showToast(error.response.data.message, "error");
+      } else {
+        console.error("Error while login", error.message);
+        showToast(error.message, "error");
+      }
+    } finally {
+      setLoading(false); // Unset loader
+    }
   };
 
   const clearForm = () => {
@@ -124,7 +111,6 @@ const Login = () => {
                       disabled={isButtonDisabled}
                       type="submit"
                       className="btn btn-primary w-100"
-                      onClick={login}
                       style={{
                         display: "flex",
                         justifyContent: "center",
@@ -136,11 +122,15 @@ const Login = () => {
                         <div className="loader">
                           <ThreeDots height="30" width="30" color="#fff" />
                         </div>
-                      )}                    </button>
+                      )}
+                    </button>
                   </div>
                   <div className="mt-3 text-center">OR</div>
                   <div className="pt-3 google-connect-login">
-                    <button className="google-icon"><img src="/icon/google.png" className="google" alt="Google Icon" /> <b>Create with Google</b></button>
+                    <button className="google-icon">
+                      <img src="/icon/google.png" className="google" alt="Google Icon" />
+                      <b>Create with Google</b>
+                    </button>
                   </div>
                   <div className="mt-3 text-center pb-3">
                     <Link to="/signin" className="btn btn-lg btn-dark">Register</Link>
@@ -153,6 +143,6 @@ const Login = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

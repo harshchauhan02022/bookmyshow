@@ -1,22 +1,11 @@
-import api from "./api";
-import endpoint from "./endPoint";
+// useApi.js
+import api from './api'; // Import the configured axios instance
+import endpoint from './endPoint'; // Import the API endpoints
 
 const useApi = {
- login: async (payload) => {
-  const respose = await api.post(endpoint.login, payload);
-  return respose;
-  // return respose.data;
- },
- signup: async (payload) => {
-  const respose = await api.post(endpoint.signup, payload);
-  return respose;
-  // return respose.data;
- },
- userProfile: async () => {
-  const respose = await api.get(endpoint.profile);
-  return respose;
-  // return respose.data;
- },
+  login: (payload) => api.post(endpoint.login, payload),
+  // signup: (payload) => api.post(endpoint.signup, payload),
+  // getProfile: () => api.get(endpoint.profile),
 };
 
 export default useApi;

@@ -1,12 +1,11 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom"
 import InnerHeader from "./InnerHeader";
 import ThemeToggleButton from "./ThemeToggleButton";
 import ThemeContext from "../context/ThemeContext";
-import { Modal, Button } from 'react-bootstrap';
-import useApi from "../api/useApi";
-import Signin from "../pages/Singin"; // Import the Signin component
-
+import Sidebar from "../menu/Sidebar"; // Sidebar component ko import karein
+import '../css/Sidebar.css'; // Agar abhi tak Sidebar CSS import nahi kiya hai toh import karein
+import SingPopup from "../menu/SingPopup";
 const logo = "/logo.png";
 
 function Header() {
@@ -14,30 +13,14 @@ function Header() {
   const navigate = useNavigate();
   const userEmail = localStorage.getItem("email");
 
-  const [showModal, setShowModal] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar state
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen); // Sidebar toggle function
 
-  function getProfile() {
-    const promise = useApi.userProfile();
-    promise
-      .then(async function (response) {
-        console.log(">>>>>>> profile response", response);
-      })
-      .catch((error) => {
-        console.log(">>>>>>> profile error", error.message);
-      });
-  }
-
-  useEffect(() => {
-    getProfile();
-  }, []);
-
+  // User ko logout karne wala function
   const logout = async () => {
     await localStorage.clear();
     navigate("/login");
   };
-
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
 
   return (
     <div className={textColor}>
@@ -57,7 +40,6 @@ function Header() {
             </form>
           </div>
           <ThemeToggleButton />
-
           <div className="d-flex justify-content-start align-items-center">
             {userEmail ? (
               <>
@@ -71,54 +53,23 @@ function Header() {
                 </button>
               </>
             ) : (
-              <Button variant="dark" onClick={handleShowModal}>
-                Sign up
-              </Button>
+              <SingPopup />
             )}
-
+            {/* Sidebar toggle button */}
             <button
-              className="navbar-toggler"
+              className="navbar-toggler hamburger"
               type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbarDark"
-              aria-controls="offcanvasNavbarDark"
+              onClick={toggleSidebar} // Sidebar toggle function ka use karein
               aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon"></span>
             </button>
           </div>
-          <div
-            className="offcanvas offcanvas-end text-bg-white"
-            tabIndex="-1"
-            id="offcanvasNavbarDark"
-            aria-labelledby="offcanvasNavbarDarkLabel"
-          >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasNavbarDarkLabel">
-                Offcanvas
-              </h5>
-              <button
-                type="button"
-                className="btn-close btn-close-dark"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-          </div>
         </div>
       </nav>
       <InnerHeader />
-
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Sign up</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Signin />
-        </Modal.Body>
-      </Modal>
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} /> Sidebar component ka use karein
     </div>
   );
 }
-
 export default Header;

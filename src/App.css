@@ -16,27 +16,6 @@
   background-color: rgb(64, 64, 67);
 }
 
-/* .footer-three {
-  width: 100%;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  height: 125px;
-} */
-
-/* .footer-three img {
-  position: relative;
-  z-index: 1;
-} */
-
-/* .footer-three:after {
-  position: absolute;
-  content: "";
-  height: 1px;
-  background: rgb(93, 93, 95);
-  width: 100%;
-} */
-
 .white-text {
   color: #000;
 }
@@ -45,10 +24,10 @@
   color: #fff;
 }
 
-.col-md-2 {
+/* .col-md-2 {
   margin-top: 80px;
   margin-left: 150px;
-}
+} */
 
 .col-md-8 {
   margin-top: 80px;
@@ -131,37 +110,10 @@
   color: black;
 }
 
-/* .justify-content-center {
+.justify-content-center {
   background-color: #999;
-} */
+}
 
 .Continue-forgotpassword {
   background-color: rgba(12, 100, 188, 0.247);
 }
-
-/* footer */
-
-.footer-bar1 {
-  font-size: 15px;
-  margin-left: 20%;
-}
-.footer-bar2 {
-  font-size: 10px;
-}
-.footer-bar3 {
-  font-size: 12px;
-}
-
-.footer1-bar {
-  background-color: rgba(10, 5, 5, 0.185)
-}
-
-.events1 {
-  width: 80%;
-  /* Full width */
-  max-width: 300px;
-  /* Set a max-width to control the size */
-  height: auto;
-  /* Maintain aspect ratio */
-}
-

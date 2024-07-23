@@ -1,0 +1,54 @@
+.sidebar {
+ position: fixed;
+ z-index: 9;
+ top: 0;
+ right: -310px;
+ width: 310px;
+ height: 100%;
+ background-color: #fff;
+ color: rgb(13, 10, 10);
+ transition: left 0.3s;
+ padding: 8px;
+}
+
+.sidebar.open {
+ right: 0;
+}
+
+.sidebar .sidebar-nav {
+ display: flex;
+ flex-direction: column;
+ /* padding-left: 25px; */
+ /* margin-top: 5px; */
+}
+
+.sidebar .sidebar-nav a {
+ color: rgb(16, 10, 10);
+ padding: 20px 0;
+ text-decoration: none;
+ border-bottom: 1px solid rgba(0, 0, 0, 0.167);
+}
+
+.sidebar .sidebar-nav a:hover {
+ background-color: #7f7f7e2d;
+
+}
+
+.logo-login {
+ width: 40px;
+}
+
+.p-login {
+ font-size: 12px;
+ margin-left: px;
+}
+
+.icon-s-login {
+ /* margin-right: 18px; */
+ font-size: 10px;
+ margin-top: 8px;
+}
+
+.SingPopup-button {
+ font-size: 5px;
+}

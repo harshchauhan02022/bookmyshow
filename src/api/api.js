@@ -2,8 +2,7 @@ import axios from "axios";
 
 // Create an instance of axios with custom configuration
 const api = axios.create({
- baseURL: "http://localhost:8000/", // Base URL for all requests made by this instance
- // timeout: 1000,
+ baseURL: "http://localhost:9000/", // Base URL for all requests made by this instance
  headers: {
   Accept: "application/json", // Set Accept header to indicate acceptance of JSON responses
   "Content-Type": "application/json", // Set Content-Type header to indicate sending JSON data
@@ -24,5 +23,4 @@ api.interceptors.request.use(
  }
 );
 
-
-export default api; // Export the configured axios instance
+export default api;
