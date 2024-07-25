@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const api = axios.create({
- baseURL: "http://localhost:9000/", // Ensure this matches your server's URL
+ baseURL: "http://localhost:9000/", // Base URL of your API server
  headers: {
   Accept: "application/json",
   "Content-Type": "application/json",
  },
 });
 
-// Include the token in headers if available
+// Add token to headers if available
 api.interceptors.request.use(
  async (config) => {
   const token = localStorage.getItem("token");
@@ -17,9 +17,7 @@ api.interceptors.request.use(
   }
   return config;
  },
- (error) => {
-  return Promise.reject(error);
- }
+ (error) => Promise.reject(error)
 );
 
 export default api;

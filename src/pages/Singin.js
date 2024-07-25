@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-// import { Link } from "react-router-dom";
-import { showToast } from "../utils/toast"; // Import the toast utility
-import LoginPopup from '../menu/LoginPopup';
+import { showToast } from "../utils/toast";
+import useApi from '../api/useApi'; // Ensure correct import
 
 const Signin = () => {
  const [name, setName] = useState("");
@@ -15,16 +13,10 @@ const Signin = () => {
 
  const handleChange = (e) => {
   const { name, value } = e.target;
-
-  if (name === "name") {
-   setName(value);
-  } else if (name === "email") {
-   setEmail(value);
-  } else if (name === "phone") {
-   setPhone(value);
-  } else if (name === "password") {
-   setPassword(value);
-  }
+  if (name === "name") setName(value);
+  if (name === "email") setEmail(value);
+  if (name === "phone") setPhone(value);
+  if (name === "password") setPassword(value);
  };
 
  useEffect(() => {
@@ -33,14 +25,13 @@ const Signin = () => {
 
  const addSignup = async (e) => {
   e.preventDefault();
-  const payload = {
-   name,
-   email,
-   phone,
-   password,
-  };
+  const payload = { name, email, phone, password };
+
   try {
-   const response = await axios.post("http://localhost:9000/api/users/register", payload);
+   console.log("Sending payload:", payload); // Log payload
+   const response = await useApi.register(payload);
+   console.log("API Response:", response); // Log API response
+
    if (response && response.data) {
     setSuccessMessage(response.data.message);
     setEmailError("");
@@ -50,6 +41,7 @@ const Signin = () => {
     showToast("Unexpected response format", "error");
    }
   } catch (error) {
+   console.log("API Error:", error); // Log API error
    if (error.response && error.response.data) {
     setEmailError(error.response.data.error || "An unexpected error occurred");
    } else {
@@ -123,9 +115,6 @@ const Signin = () => {
      >
       Sign up
      </button>
-    </div>
-    <div className="text-center my-3">
-     <LoginPopup />
     </div>
    </form>
   </div>
