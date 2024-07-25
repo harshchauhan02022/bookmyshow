@@ -1,0 +1,45 @@
+.movie-img {
+ width: 18%; /* Adjust the width as needed */
+ max-width: 250px; /* Optional max width */
+ margin: 0 16px; /* Adjust the margin as needed */
+ height: auto;
+ border-radius: 10px;
+}
+
+.carousel-custom-controls {
+ position: absolute;
+ top: 40%;
+ width: 102%;
+ display: flex;
+ justify-content: space-between;
+ transform: translateY(-55%);
+}
+
+.custom-button {
+ background-color: rgba(23, 22, 22, 0.842);
+ border: none;
+ padding: 10px;
+ cursor: pointer;
+ border-radius: 50%;
+ width: 40px; /* Adjust width */
+ height: 40px; /* Adjust height */
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.carousel-control-prev.custom-button {
+ left: 0;
+}
+
+.carousel-control-next.custom-button {
+ right: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+ background-color: rgba(27, 26, 26, 0.532);
+ border-radius: 50%;
+ width: 20px;
+ height: 20px;
+}

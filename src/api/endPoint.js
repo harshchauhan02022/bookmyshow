@@ -1,7 +1,5 @@
 const endpoint = {
- login: "api/login",
- // signup: "api/register",
- // profile: "api/profile",
+ login: "/api/users/login",
 };
 
 export default endpoint;

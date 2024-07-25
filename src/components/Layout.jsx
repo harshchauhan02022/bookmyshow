@@ -5,7 +5,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import NotFound from "../screens/NotFound";
 import Home from "../screens/Home";
-import Movies from "../screens/Movies";
 import Stream from "../screens/Stream";
 import Event from "../screens/Events";
 import Plays from "../screens/Plays";
@@ -20,9 +19,13 @@ import AddBlog from "../screens/blogs/AddBlog";
 import Blogs from "../screens/blogs/Blogs";
 import Contact from "../screens/Contact";
 import Test from "../screens/Test";
-import Login from "../pages/Login";
-import ForgotPassword from "../pages/ForgotPassword";
+// import Login from "../pages/Login";
+// import ForgotPassword from "../pages/ForgotPassword";
 import SingPopup from "../menu/SingPopup";
+import LoginPopup from "../menu/LoginPopup";
+// import ParentComponent from "../menu/ParentComponent";
+import ForgotPopup from "../menu/ForgotPopup";
+import Movies from "../screens/Movies/Movies";
 
 
 const Layout = () => {
@@ -41,8 +44,8 @@ const Layout = () => {
      <Route path="/Sports" element={<Sports />} />
      <Route path="/Activites" element={<Activites />} />
      {/* <Route path="/signin" element={<Signin />} /> */}
-     <Route path="/login" element={<Login />} />
-     <Route path="/forgotPassword" element={<ForgotPassword />} />
+     {/* <Route path="/login" element={<Login />} /> */}
+     {/* <Route path="/forgotPassword" element={<ForgotPassword />} /> */}
      <Route path="/ListYourShow" element={<ListYourShow />} />
      <Route path="/Corporates" element={<Corporates />} />
      <Route path="/Offers" element={<Offers />} />
@@ -54,6 +57,9 @@ const Layout = () => {
      <Route path="test" element={<Test />} />
      <Route path="*" element={<NotFound />} />
      <Route path="SingPopup" element={<SingPopup />} />
+     <Route path="LoginPopup" element={<LoginPopup />} />
+     <Route path="ForgotPopup" element={<ForgotPopup />} />
+     {/* <Route path="ParentComponent" element={<ParentComponent />} /> */}
 
     </Routes>
     <Footer />

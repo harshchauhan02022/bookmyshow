@@ -31,10 +31,10 @@ const Events = () => {
 
  return (
   <div className={TextColor}>
-   <div className="d-flex align-items-center justify-content-center">
+   <div className="d-flex align-items-center justify-content-center justify">
     <div className="container-fluid">
      <div className="row">
-      <div className="col-md-2">
+      <div className="col-md-2 all-files">
        <h3>Filters</h3>
        <div>
         <div onClick={toggleDateDropdown}>

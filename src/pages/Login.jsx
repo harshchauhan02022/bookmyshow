@@ -1,24 +1,23 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
 import { ThreeDots } from "react-loader-spinner";
 import { showToast } from "../utils/toast";
 import useApi from "../api/useApi";
+import SingPopup from '../menu/SingPopup';
+import ForgotPopup from '../menu/ForgotPopup';
 
 const Login = () => {
   const { textColor } = useContext(ThemeContext);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [error, setError] = useState("");
-
-  const navigate = useNavigate(); // Initialize useNavigate
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
@@ -31,18 +30,18 @@ const Login = () => {
   }, [email, password]);
 
   const login = async (event) => {
-    event.preventDefault(); // Prevent form submission
-    setLoading(true); // Set loader
+    event.preventDefault();
+    setLoading(true);
     const payload = { email, password };
 
     try {
-      const response = await useApi.login(payload); // Call login api
-      await localStorage.setItem("email", email);
-      await localStorage.setItem("token", response.data.token);
-      await sessionStorage.setItem("email", email);
+      const response = await useApi.login(payload);
+      localStorage.setItem("email", email);
+      localStorage.setItem("token", response.data.token);
+      sessionStorage.setItem("email", email);
       clearForm();
       showToast("Login Successfully!", "success");
-      navigate("/movies"); // Redirect to the movies page
+      navigate("/movies");
     } catch (error) {
       if (error.response && error.response.status === 401) {
         showToast(error.response.data.message, "error");
@@ -51,7 +50,7 @@ const Login = () => {
         showToast(error.message, "error");
       }
     } finally {
-      setLoading(false); // Unset loader
+      setLoading(false);
     }
   };
 
@@ -67,10 +66,7 @@ const Login = () => {
       <div className="container-login">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-lg-7 col-sm-6 p-0 login">
-              <img src="/banner/login-icon.jpg" alt="Login Banner" />
-            </div>
-            <div className="col-lg-5 col-sm-6">
+            <div className="col-lg-12 col-sm-6">
               <div className="mt-3">
                 <div className="text-center">
                   <h1><b>Welcome Back</b></h1>
@@ -104,7 +100,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="mb-3 text-end">
-                    <Link to="/forgotPassword">Forgot Password</Link>
+                    <ForgotPopup />
                   </div>
                   <div className="pt-3 text-center">
                     <button
@@ -133,7 +129,7 @@ const Login = () => {
                     </button>
                   </div>
                   <div className="mt-3 text-center pb-3">
-                    <Link to="/signin" className="btn btn-lg btn-dark">Register</Link>
+                    <SingPopup />
                   </div>
                 </form>
               </div>

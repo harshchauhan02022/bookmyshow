@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { showToast } from "../utils/toast"; // Import the toast utility
+import LoginPopup from '../menu/LoginPopup';
 
 const Signin = () => {
  const [name, setName] = useState("");
@@ -124,7 +125,7 @@ const Signin = () => {
      </button>
     </div>
     <div className="text-center my-3">
-     <Link to="/login" className="btn btn-lg btn-dark">Login</Link>
+     <LoginPopup />
     </div>
    </form>
   </div>

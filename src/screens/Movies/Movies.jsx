@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import MoviesList from "../components/MoviesList";
-import ThemeContext from "../context/ThemeContext";
+import MoviesList from "../../components/MoviesList";
+import ThemeContext from "../../context/ThemeContext";
  
 const Movies = () => {
 

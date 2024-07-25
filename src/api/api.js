@@ -1,15 +1,14 @@
 import axios from "axios";
 
-// Create an instance of axios with custom configuration
 const api = axios.create({
- baseURL: "http://localhost:9000/", // Base URL for all requests made by this instance
+ baseURL: "http://localhost:9000/", // Ensure this matches your server's URL
  headers: {
-  Accept: "application/json", // Set Accept header to indicate acceptance of JSON responses
-  "Content-Type": "application/json", // Set Content-Type header to indicate sending JSON data
+  Accept: "application/json",
+  "Content-Type": "application/json",
  },
 });
 
-// Add a request interceptor to include the token in headers
+// Include the token in headers if available
 api.interceptors.request.use(
  async (config) => {
   const token = localStorage.getItem("token");

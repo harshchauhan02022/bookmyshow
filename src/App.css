@@ -24,11 +24,6 @@
   color: #fff;
 }
 
-/* .col-md-2 {
-  margin-top: 80px;
-  margin-left: 150px;
-} */
-
 .col-md-8 {
   margin-top: 80px;
 }
@@ -50,6 +45,7 @@
   width: 24%;
   margin-top: 10px;
   margin-left: 6px;
+  border-radius: 8px;
 }
 
 .navbar-toggler {
@@ -110,10 +106,20 @@
   color: black;
 }
 
-.justify-content-center {
-  background-color: #999;
+.justify {
+  background-color: #99999920;
 }
 
 .Continue-forgotpassword {
   background-color: rgba(12, 100, 188, 0.247);
 }
+.all-files {
+  margin-top: 80px;
+  margin-left: 150px;
+}
+
+.userEmail {
+  background-color:red;
+}
+
+

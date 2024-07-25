@@ -19,7 +19,7 @@ function Header() {
   // User ko logout karne wala function
   const logout = async () => {
     await localStorage.clear();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -43,7 +43,7 @@ function Header() {
           <div className="d-flex justify-content-start align-items-center">
             {userEmail ? (
               <>
-                <p>{userEmail}&nbsp;&nbsp;</p>
+                <p className="userEmail">{userEmail}&nbsp;&nbsp;</p>
                 <button
                   onClick={logout}
                   type="button"
@@ -52,7 +52,7 @@ function Header() {
                   Logout
                 </button>
               </>
-            ) : (
+              )  :  (
               <SingPopup />
             )}
             {/* Sidebar toggle button */}
