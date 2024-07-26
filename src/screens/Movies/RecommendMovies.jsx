@@ -7,9 +7,9 @@ const RecommendMovies = () => {
  const { TextColor } = useContext(ThemeContext)
  const [index, setIndex] = useState(0);
 
- const handleSelect = (selectedIndex, e) => {
-  setIndex(selectedIndex);
- };
+ // const handleSelect = (selectedIndex, e) => {
+ //  setIndex(selectedIndex);
+ // };
 
  const images = [
   "/movies/movies1.png",

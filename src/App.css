@@ -24,10 +24,6 @@
   color: #fff;
 }
 
-.col-md-8 {
-  margin-top: 80px;
-}
-
 .login img {
   height: auto;
   width: 80%;
@@ -38,14 +34,6 @@
 
 .container-login {
   background-color: rgba(4, 0, 255, 0.269);
-}
-
-
-.events {
-  width: 24%;
-  margin-top: 10px;
-  margin-left: 6px;
-  border-radius: 8px;
 }
 
 .navbar-toggler {
@@ -106,20 +94,21 @@
   color: black;
 }
 
-.justify {
-  background-color: #99999920;
-}
-
 .Continue-forgotpassword {
   background-color: rgba(12, 100, 188, 0.247);
-}
-.all-files {
-  margin-top: 80px;
-  margin-left: 150px;
 }
 /* localStorage */
 .userEmail {
   background-color:red;
 }
+
+.icon-bookmyshow {
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom:60px;
+}
+
+
+
 
 

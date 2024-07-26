@@ -9,13 +9,13 @@ function Footer() {
         <div className="row">
           <div className="footer-one d-flex justify-content-between">
             <div className="footer-bar1">
-              Got a show, event, activity or a great experience? Partner with us
-              & get listed on BookMyShow
+              <b>List your Show Got a show, event, activity or a great experience? Partner with us
+                & get listed on BookMyShow</b>
             </div>
             <div>
               <Link to="/contact">
                 <button type="button" className="btn btn-danger btn-sm">
-                  Contact Us
+                  Contact today!
                 </button>
               </Link>
             </div>
@@ -25,15 +25,18 @@ function Footer() {
         <div className="row text-center footer1-bar">
 
           <div className="col-md-4">
-            <img src="icon/headset_support_icon.png" alt="Customer support icon" />
+            <img src="icon/headset_support_icon.png" alt="Customer support icon"
+              className="icon-headset" />
             <p className="footer-bar3">24/7 CUSTOMER CARE</p>
           </div>
           <div className="col-md-4">
-            <img src="icon/send_resend_icon.png" alt="Resend booking confirmation icon" />
+            <img src="icon/send_resend_icon.png" alt="Resend booking confirmation icon"
+              className="icon-headset" />
             <p className="footer-bar3">RESEND BOOKING CONFIRMATION</p>
           </div>
           <div className="col-md-4">
-            <img src="icon/message_icon.png" alt="Newsletter subscription icon" />
+            <img src="icon/message_icon.png" alt="Newsletter subscription icon"
+              className="icon-headset" />
             <p className="footer-bar3">SUBSCRIBE TO THE NEWSLETTER</p>
           </div>
 

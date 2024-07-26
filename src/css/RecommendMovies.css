@@ -1,7 +1,10 @@
 .movie-img {
- width: 18%; /* Adjust the width as needed */
- max-width: 250px; /* Optional max width */
- margin: 0 16px; /* Adjust the margin as needed */
+ width: 18%;
+ /* Adjust the width as needed */
+ max-width: 250px;
+ /* Optional max width */
+ margin: 0 16px;
+ /* Adjust the margin as needed */
  height: auto;
  border-radius: 10px;
 }
@@ -21,8 +24,10 @@
  padding: 10px;
  cursor: pointer;
  border-radius: 50%;
- width: 40px; /* Adjust width */
- height: 40px; /* Adjust height */
+ width: 40px;
+ /* Adjust width */
+ height: 40px;
+ /* Adjust height */
  display: flex;
  justify-content: center;
  align-items: center;
@@ -42,4 +47,32 @@
  border-radius: 50%;
  width: 20px;
  height: 20px;
+}
+
+
+
+
+/* MoviesList.css */
+.movies-list {
+ display: flex;
+ flex-wrap: wrap;
+ /* Allows wrapping of items to new lines if necessary */
+}
+
+.movie-item {
+ flex: 1 1 20%;
+ /* Adjust this value as needed to control item width */
+ text-align: center;
+ /* Centers text inside movie item */
+}
+
+.movie-image {
+ max-width: 80%;
+ /* height: auto; */
+ border-radius: 8px;
+ /* Optional: Adds rounded corners to images */
+}
+
+.movie-subtitle {
+ color: rgb(247, 6, 6);
 }

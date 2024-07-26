@@ -1,0 +1,75 @@
+.events-container {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+
+.clear-btn {
+ margin-left: 10px;
+ color: rgba(18, 17, 17, 0.724);
+ font-size: 11px;
+}
+
+.nav-item {
+ margin-bottom: 10px;
+}
+
+.dropdown {
+ background-color: white;
+ margin-top: 5px;
+}
+
+.events-background {
+ background-color: #9590902d;
+}
+
+.all-files {
+ margin-top: 80px;
+ margin-left: 150px;
+ /* background-color: white; */
+}
+
+.dropdown-menu {
+ display: none;
+}
+
+
+.events-container {
+ display: flex;
+ margin-top: 15px;
+ align-items: center;
+ justify-content: flex-start;
+ gap: 35px;
+ flex-wrap: wrap;
+}
+
+.events-container img{
+ max-width: 200px;
+ border-radius: 8px;
+}
+
+.col-md-8 {
+ margin-top: 80px;
+ flex-wrap: wrap;
+}
+
+.success {
+ border-radius: 16px;
+ background-color: white;
+ color: red;
+ border-color: red;
+ font-size: 12px;
+}
+
+.success:hover {
+ background-color: red;
+ border-color: red;
+}
+
+.buttonBox {
+ display: flex;
+ align-items: center;
+ justify-content: flex-start;
+ gap: 25px;
+ flex-wrap: wrap;
+}

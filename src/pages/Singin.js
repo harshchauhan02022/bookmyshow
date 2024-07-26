@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { showToast } from "../utils/toast";
 import useApi from '../api/useApi'; // Ensure correct import
+import LoginPopup from '../menu/LoginPopup';
 
 const Signin = () => {
  const [name, setName] = useState("");
@@ -115,6 +116,9 @@ const Signin = () => {
      >
       Sign up
      </button>
+    </div>
+    <div className="text-center my-3">
+    <LoginPopup />
     </div>
    </form>
   </div>

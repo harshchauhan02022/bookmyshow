@@ -7,6 +7,9 @@ const MainBanner = () => {
     <div className="container">
       <CarouselComponent />
       <RecommendMovies />
+      <div>
+        <img src="./icon/bookmyshow.png" className="icon-bookmyshow" alt="Description of the banner" />
+      </div>
     </div>
   );
 };
